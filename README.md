@@ -1,1 +1,4 @@
-Check out http://shopify.github.com/dashing for more information.
+FLE Dashing.io Dashboard
+========================
+
+A sweet dashboard for the Foundation for Learning Equality offices.
