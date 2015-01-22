@@ -1,7 +1,7 @@
 require 'octokit'
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
-  client = Octokit::Client.new(:access_token => "2c1f154914e0bd73e1c3c738c1a90d64647359a8")
+  client = Octokit::Client.new(:access_token => ENV["GITHUB_ALL_ACCESS"])
   my_organization = "learningequality"
   repos = client.organization_repositories(my_organization).map { |repo| repo.name }
  
