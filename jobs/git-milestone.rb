@@ -9,7 +9,7 @@ git_project = "ka-lite"
 
 SCHEDULER.every '20m', :first_in => 0 do |job|
     uri = "https://api.github.com/repos/#{git_owner}/#{git_project}/milestones?access_token=#{git_token}"
-    puts "Getting #{uri}"
+    puts "Getting milestone data from GitHub"
     response = RestClient.get uri
     milestones = JSON.parse(response.body, symbolize_names: true)
 
