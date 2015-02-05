@@ -2,10 +2,13 @@
 require 'rest-client'
 require 'json'
 require 'date'
+require 'yaml'
 
-git_token = ENV["GITHUB_ALL_ACCESS"]
-git_owner = "learningequality"
-git_project = "ka-lite"
+CONFIG_FILE = YAML.load_file('config.yml')
+SECRETS_FILE = YAML.load_file('secrets.yml')
+git_token = SECRETS_FILE["github_all_access_key"]
+git_owner = CONFIG_FILE["git_owner"]
+git_project = CONFIG_FILE["git_project"]
 
 SCHEDULER.every '20m', :first_in => 0 do |job|
     uri = "https://api.github.com/repos/#{git_owner}/#{git_project}/milestones?access_token=#{git_token}"
