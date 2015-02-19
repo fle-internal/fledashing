@@ -1,19 +1,18 @@
 <script type='text/javascript'>
-$(function() {
-  // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
-  // Dashing.gridsterLayout('[{"col":2,"row":1},{"col":1,"row":1},{"col":3,"row":1},{"col":2,"row":2},{"col":3,"row":2},{"col":1,"row":2},{"col":5,"row":1},{"col":4,"row":2},{"col":2,"row":3}]')
-  Dashing.widget_base_dimensions = [370, 340]
-  Dashing.numColumns = 5
-});
+  $(function() {
+    // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
+    // Dashing.gridsterLayout('[{"col":2,"row":1},{"col":1,"row":1},{"col":3,"row":1},{"col":2,"row":2},{"col":3,"row":2},{"col":1,"row":2},{"col":5,"row":1},{"col":4,"row":2},{"col":2,"row":3}]')
+    Dashing.widget_base_dimensions = [370, 340]
+    Dashing.numColumns = 4
+  });
 </script>
-
 
 <% content_for :title do %>FLE Dashboard<% end %>
 
 <div class="gridster">
   <ul>
     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-view="Clock"></div>
+      <div data-view="Clock" style="background-color: #FF4124"></div>
       <i class="icon-time icon-background"></i>
     </li>
 
@@ -22,16 +21,20 @@ $(function() {
     </li>
 
     <li data-row="1" data-col="2" data-sizex="2" data-sizey="1">
-      <div data-id="welcome" data-view="Text" data-title="Hello" data-text="This is the FLE everything-visualizer." data-moreinfo="Protip: You can drag the widgets around!"></div>
+      <div data-id="welcome" data-view="Text" data-title="Hello" data-text="This is the FLE everything-visualizer." data-moreinfo="[This space is mostly a placeholder for future widgets]" style="background-color: #ed403b"></div>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
       <div data-id="pull_requests" data-view="PullRequests"></div>
     </li>
 
-    <li data-row="2" data-col="2" data-sizex="2" data-sizey="1">
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="git_next_milesone" data-view="Text" data-title="Next Milestone" style="background-color:#333A52; padding-bottom: 70px"></div>
       <i class="icon-github icon-background"></i>
+    </li>
+
+    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="facebook_likes" data-view="Number" data-title="Facebook Likes" data-moreinfo="for Foundation for Learning Equality" style="background-color: #3b5998"></div>
     </li>
   </ul>
 </div>

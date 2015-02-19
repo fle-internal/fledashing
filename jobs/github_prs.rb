@@ -1,10 +1,13 @@
 require 'octokit'
+require 'yaml'
+
+SECRETS_FILE = YAML.load_file('secrets.yml')
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
-  client = Octokit::Client.new(:access_token => ENV["GITHUB_ALL_ACCESS"])
-  my_organization = "learningequality"
+  client = Octokit::Client.new(:access_token => SECRETS_FILE["github_all_access_key"])
+  my_organization = CONFIG_FILE["git_owner"]
   repos = client.organization_repositories(my_organization).map { |repo| repo.name }
- 
+
   open_pull_requests = repos.inject([]) { |pulls, repo|
     client.pull_requests("#{my_organization}/#{repo}", :state => 'open').each do |pull|
       pulls.push({
